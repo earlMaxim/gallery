@@ -81,10 +81,13 @@ h4{
     display: flex;
     justify-content: center;
     margin-top: 10px;
+    margin-bottom: 7px;
 }
 .row, .table{
     padding-left: 5px;
     padding-right: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
     height: 40px;
     width: 40px;
 }
@@ -104,9 +107,9 @@ button:hover{
     display: flex;
     flex-wrap: wrap;
 }
-/* .mainRow{
+.mainRow{
     display: inline;
-} */
+}
 .item{
     width: 25%; /* устанавливаем ширину элемента */
     padding: 10px; /* добавляем отступы с каждой стороны */
@@ -115,11 +118,11 @@ button:hover{
     flex-direction: column;
     justify-content: space-between;
 }
-/* .itemRow{
+.itemRow{
     width: 300px;
     flex-direction: row;
     margin: 0 auto;
-} */
+}
 img{
     object-fit: contain;
     max-width: 100%;
@@ -129,9 +132,9 @@ img{
 .text{
   
 }
-/* .textRow{
+.textRow{
     padding-left: 5px;
-}  */
+} 
 
 .nameAndYear{
     display: flex;
@@ -145,6 +148,8 @@ img{
 .counter{
     display: flex;
     justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 .page{
     padding-left: 3px;
