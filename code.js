@@ -97,7 +97,7 @@ function makeRowGallery(page) {
         pic.setAttribute('alt',`${masterpieces[record].name}`)
         img.append(pic);
         let nameAndYear = document.createElement('div');
-        item.classList.add('nameAndYear')
+        nameAndYear.classList.add('nameAndYear')
         let picName = document.createElement('h2');
         picName.innerHTML = (`${masterpieces[record].name}`);
         let picYear = document.createElement('h2');
@@ -158,7 +158,7 @@ function makeTableGallery(page){
         pic.setAttribute('alt',`${masterpieces[record].name}`)
         img.append(pic);
         let nameAndYear = document.createElement('div');
-        item.classList.add('nameAndYear')
+        nameAndYear.classList.add('nameAndYear')
         let picName = document.createElement('h2');
         picName.innerHTML = (`${masterpieces[record].name}`);
         let picYear = document.createElement('h2');

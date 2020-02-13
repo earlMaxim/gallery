@@ -156,7 +156,7 @@ img:hover{
     display: flex;
     justify-content: space-between;
 }
-
+/* end main */
 
 
 /* page counter */
@@ -175,3 +175,39 @@ img:hover{
     background-color: lightgray;
     cursor: pointer;
 }
+
+/* end page counter */
+
+
+/* footer */
+footer{
+    height: 140px;
+    background-color: #282828;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+.footer-text{
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+}
+
+.social{
+    padding-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 15px;
+}
+.social>a>span{
+    color: white;
+    margin-right: 5px;
+    margin-left: 5px;
+ 
+}
+
+/* end footer */
