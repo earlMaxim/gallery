@@ -57,7 +57,7 @@ h2{
     padding-right: 8px;
 }
 h3{
-    font-size: 1.3em;
+    font-size: 1.1em;
     color: dimgray;
 }
 h4{
@@ -100,6 +100,16 @@ button:hover{
     border: none;
     box-shadow: none;
 }
+.fa-shopping-cart{
+   position: absolute;
+   right: 100px;
+}
+.amountOfPurcases{
+    color: green;
+    /* position: absolute;
+    right: 4px;
+    top:-11px */
+}
 /* header end */
 
 /* main */
@@ -135,6 +145,11 @@ button:hover{
 .itemRow img{
     width: 280px;
 }
+.img{
+    /* for plants */
+    padding-bottom: 7px; 
+    padding-top: 5px;
+}
 img{
     object-fit: cover;
     /* max-width: 100%; */
@@ -145,16 +160,43 @@ img{
 img:hover{
    object-fit: contain;
 }
-/* .text{
-  
-} */
+.id{
+    color: transparent;
+    position: absolute;
+}
+.amount{
+    padding-top: 2px;
+}
+.text{
+    cursor: pointer;  
+} 
 .textRow{
     padding-left: 5px;
+
+    padding-right: 15px;/* for plants */
+    cursor: pointer;
 } 
 
 .nameAndYear{
     display: flex;
     justify-content: space-between;
+}
+
+.switcher{
+    display: flex;
+  
+}
+.ball{
+    margin-top: 4px;
+    margin-right: 5px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+}
+.ball_active{
+    border: 2px solid aqua;
+    width: 8px;
+    height: 8px;
 }
 /* end main */
 

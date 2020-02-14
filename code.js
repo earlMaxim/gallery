@@ -32,13 +32,33 @@ let masterpieces=[
     // { picture:"", name:"", year:"", artist:"", style:""}
    
 ]
+let plants =[
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5", extra:["Aloe-Vera5_2","Aloe-Vera5_3"]},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"0"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
+]
+
+let ballColor = ["red", "green", "grey"];
 
 let btnRow =     document.querySelector(".row")
 let btnTable =   document.querySelector(".table")
 let gallery =    document.querySelector(".wrapper")
-
-
-console.log(gallery)
+let shoppingCart=document.querySelector(".fa-shopping-cart")
 
 let galleryRow = false;
 let galleryTable = false;
@@ -73,16 +93,16 @@ function makeRowGallery(page) {
     makePageCounter();
     let i=0;
     //pagination
-    console.log("page is " + page)
     let pageIs =     document.querySelector(".counter")
     pageIs.onclick = function(event){
         let page = event.target.innerHTML;
         makeRowGallery(page);
     }
-
+    // from which record we will show paintings -> masterpieces[record]
     let record = (page-1)*8
     //Making maximum 8 pictures on one page
     while(i<8){
+
          //Making item of gallery
         let item = document.createElement("div");
         item.classList.add("itemRow");
@@ -91,35 +111,105 @@ function makeRowGallery(page) {
         let text = document.createElement("div");
         text.classList.add("textRow");
         let pic = document.createElement("img");
-        let test =masterpieces[record].picture
-        let picAdress = test
-        pic.setAttribute('src', `img/${picAdress}`);
-        pic.setAttribute('alt',`${masterpieces[record].name}`)
+        // let test = plants[record].photo
+        // let picAdress = test
+        pic.setAttribute('src', `img/MyPlants/${plants[record].photo}.jpg`);
+        pic.setAttribute('alt',`${plants[record].name}`)
         img.append(pic);
-        let nameAndYear = document.createElement('div');
-        nameAndYear.classList.add('nameAndYear')
+        let nameAndPrice = document.createElement('div');
+        nameAndPrice.classList.add('nameAndYear')
         let picName = document.createElement('h2');
-        picName.innerHTML = (`${masterpieces[record].name}`);
+        picName.innerHTML = (`${plants[record].name}`);
+        text.addEventListener('click',addToCart)          //Adding to cart
         let picYear = document.createElement('h2');
-        picYear.innerHTML = (`${masterpieces[record].year}`)
-        nameAndYear.append(picName);
-        nameAndYear.append(picYear);
+        picYear.innerHTML = (`$${plants[record].price}`)
+        nameAndPrice.append(picName);
+        nameAndPrice.append(picYear);
         let autorAndStyle = document.createElement('div');
         autorAndStyle.classList.add('autorAndStyle');
         let picArtist = document.createElement('h3')
-        picArtist.innerHTML = (`${masterpieces[record].artist}`)
-        let picStyle = document.createElement('h4');
-        picStyle.innerHTML =(`${masterpieces[record].style}`)
+        picArtist.innerHTML = (`${plants[record].description}`)
+        // let picStyle = document.createElement('h4');
+        // picStyle.innerHTML =(`${masterpieces[record].style}`)
         autorAndStyle.append(picArtist);
-        autorAndStyle.append(picStyle);
+        // autorAndStyle.append(picStyle);
 
-        text.append(nameAndYear);
+        text.append(nameAndPrice);
         text.append(autorAndStyle);
         item.append(img);
         item.append(text);
+
+         //adding uniq id to each object
+         plants[record].record = record;
+         let id = document.createElement("span")
+         id.classList.add("id")
+         id.innerHTML = (`${plants[record].record}`)
+         item.prepend(id)
+
+        //how many
+        let amount = document.createElement("span");
+        amount.classList.add("amount")
+        if(plants[record].amount>0){
+            amount.innerHTML=`In stock: ${plants[record].amount}`
+        }
+        else{amount.innerHTML=`Sold out`}
+        item.append(amount)
+ 
+          //If more than one photo
+         if(plants[record].extra){
+             let switcher = document.createElement('div');
+             switcher.classList.add('switcher')
+             for(let i=0;i<plants[record].extra.length +1; i++){
+                 let ball = document.createElement('div');
+                 ball.classList.add('ball');
+                 ball.style.backgroundColor = ballColor[i];
+                 ball.addEventListener('click', changePhoto)
+                 switcher.append(ball)
+             }
+             switcher.firstChild.classList.add('ball_active')
+             item.append(switcher)
+         }
         main.append(item)
         i++  
-        record++    
+        record++ 
+        {
+        // let item = document.createElement("div");
+        // item.classList.add("itemRow");
+        // let img = document.createElement("div");
+        // img.classList.add("img");
+        // let text = document.createElement("div");
+        // text.classList.add("textRow");
+        // let pic = document.createElement("img");
+        // let test =masterpieces[record].picture
+        // let picAdress = test
+        // pic.setAttribute('src', `img/${picAdress}`);
+        // pic.setAttribute('alt',`${masterpieces[record].name}`)
+        // img.append(pic);
+        // let nameAndYear = document.createElement('div');
+        // nameAndYear.classList.add('nameAndYear')
+        // let picName = document.createElement('h2');
+        // picName.innerHTML = (`${masterpieces[record].name}`);
+        // let picYear = document.createElement('h2');
+        // picYear.innerHTML = (`${masterpieces[record].year}`)
+        // nameAndYear.append(picName);
+        // nameAndYear.append(picYear);
+        // let autorAndStyle = document.createElement('div');
+        // autorAndStyle.classList.add('autorAndStyle');
+        // let picArtist = document.createElement('h3')
+        // picArtist.innerHTML = (`${masterpieces[record].artist}`)
+        // let picStyle = document.createElement('h4');
+        // picStyle.innerHTML =(`${masterpieces[record].style}`)
+        // autorAndStyle.append(picArtist);
+        // autorAndStyle.append(picStyle);
+
+        // text.append(nameAndYear);
+        // text.append(autorAndStyle);
+        // item.append(img);
+        // item.append(text);
+        // main.append(item)
+        // i++  
+        // record++    
+    }
     }
 }
 
@@ -136,7 +226,6 @@ function makeTableGallery(page){
     makePageCounter();
     let i=0;
     //pagination
-    console.log("page is " + page)
     let pageIs =     document.querySelector(".counter")
     pageIs.onclick = function(event){
         let page = event.target.innerHTML;
@@ -146,42 +235,168 @@ function makeTableGallery(page){
      let record = (page-1)*8
     //Making maximum 8 pictures in one page
     while (i<8){
-         //Making item of gallery
-        let item = document.createElement("div");
-        item.classList.add("item");
-        let img = document.createElement("div");
-        img.classList.add("img");
-        let text = document.createElement("div");
-        text.classList.add("text");
-        let pic = document.createElement("img")
-        pic.setAttribute('src', `img/${masterpieces[record].picture}`)
-        pic.setAttribute('alt',`${masterpieces[record].name}`)
-        img.append(pic);
-        let nameAndYear = document.createElement('div');
-        nameAndYear.classList.add('nameAndYear')
-        let picName = document.createElement('h2');
-        picName.innerHTML = (`${masterpieces[record].name}`);
-        let picYear = document.createElement('h2');
-        picYear.innerHTML = (`${masterpieces[record].year}`)
-        nameAndYear.append(picName);
-        nameAndYear.append(picYear);
-        let autorAndStyle = document.createElement('div');
-        autorAndStyle.classList.add('autorAndStyle');
-        let picArtist = document.createElement('h3')
-        picArtist.innerHTML = (`${masterpieces[record].artist}`)
-        let picStyle = document.createElement('h4');
-        picStyle.innerHTML =(`${masterpieces[record].style}`)
-        autorAndStyle.append(picArtist);
-        autorAndStyle.append(picStyle);
 
-        text.append(nameAndYear);
-        text.append(autorAndStyle);
-        item.append(img);
-        item.append(text);
-        main.append(item)
-        i++
-        record++  
+         //Making item of gallery
+         let item = document.createElement("div");
+         item.classList.add("item");
+         let img = document.createElement("div");
+         img.classList.add("img");
+         let text = document.createElement("div");
+         text.classList.add("text");
+         let pic = document.createElement("img")
+         pic.setAttribute('src', `img/MyPlants/${plants[record].photo}.jpg`)
+         pic.setAttribute('alt',`${plants[record].name}`)
+         img.append(pic);
+         let nameAndYear = document.createElement('div');
+         nameAndYear.classList.add('nameAndYear')
+         let picName = document.createElement('h2');
+         picName.innerHTML = (`${plants[record].name}`);
+         text.addEventListener('click',addToCart)          //Adding to cart
+         let picYear = document.createElement('h2');
+         picYear.innerHTML = (`$${plants[record].price}`)
+         nameAndYear.append(picName);
+         nameAndYear.append(picYear);
+         let autorAndStyle = document.createElement('div');
+         autorAndStyle.classList.add('autorAndStyle');
+         let picArtist = document.createElement('h3')
+         picArtist.innerHTML = (`${plants[record].description}`)
+        //  let picStyle = document.createElement('h4');
+        //  picStyle.innerHTML =(`${masterpieces[record].style}`)
+         autorAndStyle.append(picArtist);
+        //  autorAndStyle.append(picStyle);
+      
+ 
+         text.append(nameAndYear);
+         text.append(autorAndStyle);
+         item.append(img);
+         item.append(text);
+
+        //adding uniq id to each object
+        plants[record].record = record;
+        let id = document.createElement("span")
+        id.classList.add("id")
+        id.innerHTML = (`${plants[record].record}`)
+        item.prepend(id)
+
+        //how many
+        let amount = document.createElement("span");
+        amount.classList.add("amount")
+        if(plants[record].amount>0){
+            amount.innerHTML=`In stock: ${plants[record].amount}`
+        }
+        else{amount.innerHTML=`Sold out`}
+        item.append(amount)
+
+         //If more than one photo
+        if(plants[record].extra){
+            let switcher = document.createElement('div');
+            switcher.classList.add('switcher')
+            for(let i=0;i<plants[record].extra.length +1; i++){
+                let ball = document.createElement('div');
+                ball.classList.add('ball');
+                ball.style.backgroundColor = ballColor[i];
+                ball.addEventListener('click', changePhoto)
+                switcher.append(ball)
+            }
+            switcher.firstChild.classList.add('ball_active')
+            item.append(switcher)
+        }
+ 
+
+         main.append(item)
+         i++
+         record++  
+         {
+        // let item = document.createElement("div");
+        // item.classList.add("item");
+        // let img = document.createElement("div");
+        // img.classList.add("img");
+        // let text = document.createElement("div");
+        // text.classList.add("text");
+        // let pic = document.createElement("img")
+        // pic.setAttribute('src', `img/${masterpieces[record].picture}`)
+        // pic.setAttribute('alt',`${masterpieces[record].name}`)
+        // img.append(pic);
+        // let nameAndYear = document.createElement('div');
+        // nameAndYear.classList.add('nameAndYear')
+        // let picName = document.createElement('h2');
+        // picName.innerHTML = (`${masterpieces[record].name}`);
+        // let picYear = document.createElement('h2');
+        // picYear.innerHTML = (`${masterpieces[record].year}`)
+        // nameAndYear.append(picName);
+        // nameAndYear.append(picYear);
+        // let autorAndStyle = document.createElement('div');
+        // autorAndStyle.classList.add('autorAndStyle');
+        // let picArtist = document.createElement('h3')
+        // picArtist.innerHTML = (`${masterpieces[record].artist}`)
+        // let picStyle = document.createElement('h4');
+        // picStyle.innerHTML =(`${masterpieces[record].style}`)
+        // autorAndStyle.append(picArtist);
+        // autorAndStyle.append(picStyle);
+
+        // text.append(nameAndYear);
+        // text.append(autorAndStyle);
+        // item.append(img);
+        // item.append(text);
+        // main.append(item)
+        // i++
+        // record++  
+         }
     }
+}
+
+function changePhoto(event){
+    let target = event.target;
+    //firstly remove ball_active
+    for (let i=0;i<target.parentNode.childNodes.length;i++){
+        target.parentNode.childNodes[i].classList.remove("ball_active")
+    }
+    //then add ball_active to new choice
+    target.classList.add("ball_active")
+    //now we changing photo
+    let photoNumber = -1;
+    for(let i=0;i<target.parentNode.childNodes.length;i++){
+        if(target.parentNode.childNodes[i].classList.contains("ball_active")){
+            photoNumber=i;
+            break;
+        }
+    }
+    let id = target.parentNode.parentNode.firstChild.innerHTML
+    console.log(id)
+    if(photoNumber==0){
+        target.parentNode.parentNode.children[1].firstChild.setAttribute('src', `img/MyPlants/${plants[id].photo}.jpg`)
+    }
+    else{
+        target.parentNode.parentNode.children[1].firstChild.setAttribute('src', `img/MyPlants/${plants[id].extra[photoNumber-1]}.jpg`)
+    }
+    console.log(photoNumber)
+    // console.log(target.parentNode.childNodes)
+     console.log(target.parentNode.parentNode.children[1])
+
+
+}
+
+function addToCart(event){
+    let target = event.target
+    let id = target.parentNode.parentNode.parentNode.firstChild.innerHTML
+    if(plants[id].amount==0){
+        alert(`Sorry we out of ${plants[id].name}`)
+    }
+    else{
+        let counter = parseInt(shoppingCart.firstChild.innerHTML)
+        shoppingCart.firstChild.innerHTML = counter+1;
+        plants[id].amount=plants[id].amount-1
+
+    }
+    let InStock = target.parentNode.parentNode.parentNode.childNodes[3];
+    let changeAmount = parseInt(target.parentNode.parentNode.parentNode.childNodes[3].innerHTML.slice(9)) - 1;
+    if(changeAmount>0){
+        InStock.innerHTML =`In stock ${changeAmount}`
+    }
+    else{
+        InStock.innerHTML = "Sold out"
+    }
+    console.log(InStock)
 }
 
 function makePageCounter (){
