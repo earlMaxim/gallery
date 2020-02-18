@@ -1,56 +1,23 @@
-// let picture = ["The_Lovers.jpg","Dance(II).jpg"]
-// let names = ["Влюбленные", "Танец (II)"]
-// let years = ["1928","1910"]
 
-let masterpieces=[
-    { picture:"The_Lovers.jpg", name:"Влюбленные", year:"1928", artist:"Рене Магритт", style:"Сюрреализм"},
-    { picture:"Dance(II).jpg", name:"Танец (II)", year:"1928", artist:"Анри Матисс", style:"Экспрессионизм"},
-    { picture:"The_man_in_the_bowler_hat.jpg", name:"Человек в котелке", year:" 1964", artist:"Рене Магритт", style:"Сюрреализм"},
-    { picture:"Les_demoiselles_d'Avignon.jpg", name:"Авиньонские девицы", year:"1907", artist:"Пабло Пикассо", style:"Кубизм"},
-    // { picture:"Smallworlds", name:"Маленькие миры 4", year:"1922", artist:"Василий Кандинский", style:"Абстракционизм"},
-    { picture:"Walk.jpg", name:"Прогулка", year:"1918", artist:"Марк Шагал", style:" Экспрессионизм"},
-    { picture:"Suprematist_composition.jpg", name:"Супрематическая композиция", year:"1916", artist:"Казимир Малевич", style:"Супрематизм"},
-    { picture:"Cleaver.jpg", name:"Дровосек", year:"1913", artist:"Казимир Малевич", style:"Абстракционизм"},
-    { picture:"Mahogany.jpg", name:"Красное дерево", year:"1910", artist:"Пит Мондриан", style:"Импрессионизм"},
-    { picture:"Composition_No._3.jpg", name:"Композиция №3", year:"1935", artist:"Пит Мондриан", style:"Абстракционизм"},
-    { picture:"Self_Portrait-The_Frame.jpg", name:"Автопортрет - Рамка", year:"1938", artist:"Фрида Кало", style:"Примитивизм"},
-    { picture:"The_wedge_red_beat_white.jpg", name:"Клином красным бей белых", year:"1920", artist:"Эль Лисицкий", style:"Супрематизм"},
-    { picture:"The_persistence_of_memory.jpg", name:"Постоянство памяти", year:"1931", artist:"Сальвадор Дали", style:"Сюрреализм"},
-    { picture:"Crucifixion_Hypercubic_body.jpg", name:"Распятие. Гиперкубическое тело", year:"1954", artist:"Сальвадор Дали", style:"Сюрреализм"},
-    { picture:"Lady_with_a_muff.jpg", name:"Дама с муфтой", year:"1916", artist:"Густав Климт", style:"Модерн"},
-    { picture:"Goldfish.jpg", name:"Красные рыбки", year:"1912", artist:"Анри Матисс", style:"Экспрессионизм"},
-    { picture:"TheTreachery_of_Images.jpg", name:"Вероломство образов (Это не трубка)", year:"1929", artist:"Рене Магритт", style:"Сюрреализм"},
-    { picture:"I_and_my_village.jpg", name:"Я и моя деревня", year:"1911", artist:"Марк Шагал", style:"Экспрессионизм"},
-    // { picture:"Nightwalks.jpg", name:"Полуночники", year:"1942", artist:"Эдвард Хоппер", style:"Реализм"},
-    { picture:"Quiet.jpg", name:"Тихий", year:"1967", artist:"Алекс Колвилл", style:"Реализм"},
-    { picture:"No_name.jpg", name:"Без названия", year:"1953", artist:"Марк Ротко", style:"Абстрактный экспрессионизм"},
-    { picture:"Spatial_concept-expectation.jpg", name:"Пространственная концепция: ожидание", year:"1964", artist:"Лучо Фонтана", style:"Абстракционизм"},
-    { picture:"In_the_car.jpg", name:"В машине", year:"1963", artist:"Рой Лихтенштейн", style:"Поп-арт"},
-    { picture:"A_can_of_soup,_Campbells.jpg", name:"Банки с супом Кэмпбеллс", year:"1962", artist:"Энди Уорхол", style:"Поп-арт"},
-    { picture:"Diptych_Marilyn.jpg", name:"Диптих Мэрилин", year:"1962", artist:"Энди Уорхол", style:"Поп-арт"},
-    { picture:"\"Little men\".Like-minded_people.jpg", name:"\"Человечки\". Единомышленники", year:"1988", artist:"Кит Харинг", style:"Поп-арт"},
-    // { picture:"", name:"", year:"", artist:"", style:""}
-   
-]
 let plants =[
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5", extra:["Aloe-Vera5_2","Aloe-Vera5_3"]},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"0"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"5"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"20",amount:"5", extra:["Aloe-Vera5_2","Aloe-Vera5_3"]},
+    { photo:"cactus-1",name:"Cactus",description:"Sharp as your humor",price:"30",amount:"0"},
+    { photo:"Aloe-Vera5_1",name:"Aloe-Vera",description:"Great small flower for your house",price:"15",amount:"3",extra:["Aloe-Vera5_2","Aloe-Vera5_3"]},
+    { photo:"airplant3",name:"Airplant",description:"Composition of three beautiful plants",price:"45",amount:"2"},
+    { photo:"gorshok-1",name:"Gorshok",description:"Simple and cheap flowerpot",price:"3",amount:"4"},
+    { photo:"is3",name:"Orhideya",description:"Perfect choice for ypur teacher",price:"17",amount:"4"},
+    { photo:"th4",name:"Office",description:"The best choice for office",price:"14",amount:"0"},
+    { photo:"the-sill_1",name:"Sill",description:"For your girlfriend",price:"20",amount:"2"},
+    { photo:"the-sill_2",name:"Another sill",description:"For your boyfriend",price:"25",amount:"1"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"43",amount:"2"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"32",amount:"4"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"43",amount:"2"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"15",amount:"4"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"24",amount:"1"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"43",amount:"0"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"22",amount:"3"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"33",amount:"5"},
+    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"3"},
 ]
 
 let ballColor = ["red", "green", "grey"];
@@ -62,25 +29,43 @@ let shoppingCart=document.querySelector(".fa-shopping-cart")
 
 let galleryRow = false;
 let galleryTable = false;
+let firstTime = false;
 
-btnRow.onclick = function(){
-    let firstpage = 1
-    makeRowGallery(firstpage)
+checkLocalStorge()
+if (document.querySelector('.main-cart')!=null){
+    makeCartPage()
 }
-btnTable.onclick = function(){
-    let firstpage = 1
-    makeTableGallery(firstpage)
+
+
+if(btnRow != null)
+{
+    btnRow.onclick = function(){
+        let firstpage = 1
+        makeRowGallery(firstpage)
+    }
 }
+if(btnTable != null)
+{
+    btnTable.onclick = function(){
+        let firstpage = 1
+        makeTableGallery(firstpage, plants)
+    }    
+}
+
 
 
 function clearGallery(){
-    if(typeof(gallery.children[1]) == 'object'){
-        gallery.children[2].remove() //remove counter
-        gallery.children[1].remove() //remove gallery
+    if(typeof(gallery.children[2]) == 'object'){
+        gallery.children[3].remove() //remove counter
+        gallery.children[2].remove() //remove gallery
+        gallery.children[1].remove() //remove filtration
     }
 }
 
 function makeRowGallery(page) {
+
+    galleryRow = true;
+    galleryTable = false;
 
     //firstly we have to clear previous gallery if we have it
     clearGallery()
@@ -89,8 +74,12 @@ function makeRowGallery(page) {
     let main = document.createElement("div");
     main.classList.add("mainRow");
     gallery.append(main);
+
+     //filtration
+     makeFiltration(main)
+
     //insert pages
-    makePageCounter();
+    makePageCounter(plants);
     let i=0;
     //pagination
     let pageIs =     document.querySelector(".counter")
@@ -98,6 +87,7 @@ function makeRowGallery(page) {
         let page = event.target.innerHTML;
         makeRowGallery(page);
     }
+
     // from which record we will show paintings -> masterpieces[record]
     let record = (page-1)*8
     //Making maximum 8 pictures on one page
@@ -111,8 +101,6 @@ function makeRowGallery(page) {
         let text = document.createElement("div");
         text.classList.add("textRow");
         let pic = document.createElement("img");
-        // let test = plants[record].photo
-        // let picAdress = test
         pic.setAttribute('src', `img/MyPlants/${plants[record].photo}.jpg`);
         pic.setAttribute('alt',`${plants[record].name}`)
         img.append(pic);
@@ -129,10 +117,7 @@ function makeRowGallery(page) {
         autorAndStyle.classList.add('autorAndStyle');
         let picArtist = document.createElement('h3')
         picArtist.innerHTML = (`${plants[record].description}`)
-        // let picStyle = document.createElement('h4');
-        // picStyle.innerHTML =(`${masterpieces[record].style}`)
         autorAndStyle.append(picArtist);
-        // autorAndStyle.append(picStyle);
 
         text.append(nameAndPrice);
         text.append(autorAndStyle);
@@ -140,13 +125,25 @@ function makeRowGallery(page) {
         item.append(text);
 
          //adding uniq id to each object
-         plants[record].record = record;
+         if(plants[record].hasOwnProperty('record')==true)
+         {
+         //plants[record].record = record;
          let id = document.createElement("span")
          id.classList.add("id")
          id.innerHTML = (`${plants[record].record}`)
          item.prepend(id)
+         }
+        if(plants[record].hasOwnProperty('record')==false)
+        {
+        plants[record].record = record;
+        let id = document.createElement("span")
+        id.classList.add("id")
+        id.innerHTML = (`${plants[record].record}`)
+        item.prepend(id)
+        }
 
         //how many
+        checkLocalStorge()
         let amount = document.createElement("span");
         amount.classList.add("amount")
         if(plants[record].amount>0){
@@ -172,48 +169,14 @@ function makeRowGallery(page) {
         main.append(item)
         i++  
         record++ 
-        {
-        // let item = document.createElement("div");
-        // item.classList.add("itemRow");
-        // let img = document.createElement("div");
-        // img.classList.add("img");
-        // let text = document.createElement("div");
-        // text.classList.add("textRow");
-        // let pic = document.createElement("img");
-        // let test =masterpieces[record].picture
-        // let picAdress = test
-        // pic.setAttribute('src', `img/${picAdress}`);
-        // pic.setAttribute('alt',`${masterpieces[record].name}`)
-        // img.append(pic);
-        // let nameAndYear = document.createElement('div');
-        // nameAndYear.classList.add('nameAndYear')
-        // let picName = document.createElement('h2');
-        // picName.innerHTML = (`${masterpieces[record].name}`);
-        // let picYear = document.createElement('h2');
-        // picYear.innerHTML = (`${masterpieces[record].year}`)
-        // nameAndYear.append(picName);
-        // nameAndYear.append(picYear);
-        // let autorAndStyle = document.createElement('div');
-        // autorAndStyle.classList.add('autorAndStyle');
-        // let picArtist = document.createElement('h3')
-        // picArtist.innerHTML = (`${masterpieces[record].artist}`)
-        // let picStyle = document.createElement('h4');
-        // picStyle.innerHTML =(`${masterpieces[record].style}`)
-        // autorAndStyle.append(picArtist);
-        // autorAndStyle.append(picStyle);
-
-        // text.append(nameAndYear);
-        // text.append(autorAndStyle);
-        // item.append(img);
-        // item.append(text);
-        // main.append(item)
-        // i++  
-        // record++    
-    }
     }
 }
 
-function makeTableGallery(page){
+function makeTableGallery(page, plants){
+
+    galleryRow = false;
+    galleryTable = true;
+
 
     //firstly we have to clear previous gallery if we have it
     clearGallery()
@@ -222,17 +185,24 @@ function makeTableGallery(page){
     let main = document.createElement("div");
     main.classList.add("main");
     gallery.append(main);
+
+    //filtration
+    makeFiltration(main)
+
     //insert pages
-    makePageCounter();
+    makePageCounter(plants);
     let i=0;
     //pagination
     let pageIs =     document.querySelector(".counter")
     pageIs.onclick = function(event){
         let page = event.target.innerHTML;
-        makeTableGallery(page);
+        makeTableGallery(page, plants);
      }
+
+
      // from which record we will show paintings -> masterpieces[record]
      let record = (page-1)*8
+
     //Making maximum 8 pictures in one page
     while (i<8){
 
@@ -260,11 +230,7 @@ function makeTableGallery(page){
          autorAndStyle.classList.add('autorAndStyle');
          let picArtist = document.createElement('h3')
          picArtist.innerHTML = (`${plants[record].description}`)
-        //  let picStyle = document.createElement('h4');
-        //  picStyle.innerHTML =(`${masterpieces[record].style}`)
          autorAndStyle.append(picArtist);
-        //  autorAndStyle.append(picStyle);
-      
  
          text.append(nameAndYear);
          text.append(autorAndStyle);
@@ -272,13 +238,25 @@ function makeTableGallery(page){
          item.append(text);
 
         //adding uniq id to each object
-        plants[record].record = record;
+        if(plants[record].hasOwnProperty('record')==true)
+        {
+        //plants[record].record = record;
         let id = document.createElement("span")
         id.classList.add("id")
         id.innerHTML = (`${plants[record].record}`)
         item.prepend(id)
+        }
+        if(plants[record].hasOwnProperty('record')==false){
+              plants[record].record = record;
+        let id = document.createElement("span")
+        id.classList.add("id")
+        id.innerHTML = (`${plants[record].record}`)
+        item.prepend(id)
+        }
+        
 
         //how many
+        checkLocalStorge()
         let amount = document.createElement("span");
         amount.classList.add("amount")
         if(plants[record].amount>0){
@@ -306,42 +284,6 @@ function makeTableGallery(page){
          main.append(item)
          i++
          record++  
-         {
-        // let item = document.createElement("div");
-        // item.classList.add("item");
-        // let img = document.createElement("div");
-        // img.classList.add("img");
-        // let text = document.createElement("div");
-        // text.classList.add("text");
-        // let pic = document.createElement("img")
-        // pic.setAttribute('src', `img/${masterpieces[record].picture}`)
-        // pic.setAttribute('alt',`${masterpieces[record].name}`)
-        // img.append(pic);
-        // let nameAndYear = document.createElement('div');
-        // nameAndYear.classList.add('nameAndYear')
-        // let picName = document.createElement('h2');
-        // picName.innerHTML = (`${masterpieces[record].name}`);
-        // let picYear = document.createElement('h2');
-        // picYear.innerHTML = (`${masterpieces[record].year}`)
-        // nameAndYear.append(picName);
-        // nameAndYear.append(picYear);
-        // let autorAndStyle = document.createElement('div');
-        // autorAndStyle.classList.add('autorAndStyle');
-        // let picArtist = document.createElement('h3')
-        // picArtist.innerHTML = (`${masterpieces[record].artist}`)
-        // let picStyle = document.createElement('h4');
-        // picStyle.innerHTML =(`${masterpieces[record].style}`)
-        // autorAndStyle.append(picArtist);
-        // autorAndStyle.append(picStyle);
-
-        // text.append(nameAndYear);
-        // text.append(autorAndStyle);
-        // item.append(img);
-        // item.append(text);
-        // main.append(item)
-        // i++
-        // record++  
-         }
     }
 }
 
@@ -379,14 +321,12 @@ function changePhoto(event){
 function addToCart(event){
     let target = event.target
     let id = target.parentNode.parentNode.parentNode.firstChild.innerHTML
+    console.log(id)
     if(plants[id].amount==0){
         alert(`Sorry we out of ${plants[id].name}`)
     }
     else{
-        let counter = parseInt(shoppingCart.firstChild.innerHTML)
-        shoppingCart.firstChild.innerHTML = counter+1;
-        plants[id].amount=plants[id].amount-1
-
+        addToLocalStorage(id)
     }
     let InStock = target.parentNode.parentNode.parentNode.childNodes[3];
     let changeAmount = parseInt(target.parentNode.parentNode.parentNode.childNodes[3].innerHTML.slice(9)) - 1;
@@ -396,19 +336,32 @@ function addToCart(event){
     else{
         InStock.innerHTML = "Sold out"
     }
-    console.log(InStock)
+    // console.log(InStock)
 }
 
-function makePageCounter (){
+function addToLocalStorage(id){
+    let counter = parseInt(shoppingCart.firstChild.innerHTML)
+    shoppingCart.firstChild.innerHTML = counter+1;
+    plants[id].amount=plants[id].amount-1
+
+    if(localStorage.getItem(id) != undefined){
+        localStorage.setItem(id,  +(localStorage.getItem(id)) +1 )
+    }
+    else{
+        localStorage.setItem(id, 1);
+    }
+}
+
+function makePageCounter (plants){
     let counter = document.createElement("div");
     counter.classList.add("counter");
 
     gallery.append(counter);
 
     let i = 1 // i - number of page
-    if(masterpieces.length > 8){ //each page has 8 pictures
+    if(plants.length > 8){ //each page has 8 pictures
        // Math.ceil(masterpieces.length/8)
-        for(;i<=Math.ceil(masterpieces.length/8);){ //making pages
+        for(;i<=Math.ceil(plants.length/8);){ //making pages
             let page = document.createElement("div");
             page.classList.add("page");
             page.innerHTML= `${i}`
@@ -423,3 +376,109 @@ function makePageCounter (){
         counter.append(page);
     }
  }
+
+
+function makeFiltration(main){
+    let filtration =    document.createElement('div');
+    filtration.classList.add("filtration")
+    let filtrPrice =    document.createElement('div');
+    filtrPrice.classList.add('filtrPrice')
+    filtrPrice.innerHTML="Price ↑"
+    let availability =  document.createElement('div');
+    availability.classList.add('availability')
+    availability.innerHTML="Available"
+    let stick =         document.createElement('span');
+    stick.classList.add('stick')
+    stick.innerHTML=" ↓ "
+    filtration.append(filtrPrice);
+    filtration.append(stick)
+    filtration.append(availability);
+    main.before(filtration)
+    filtrPrice.addEventListener('click', sortByPriceLow)
+    stick.addEventListener('click', sortByPriceHigh)
+    availability.addEventListener('click',sortByAvailibility)
+}
+
+function sortByPriceLow(){
+    plants.sort((a,b)=>a.price>b.price? 1 : -1)
+    console.log(plants)
+    if(document.querySelector('.wrapper').children[2].className == 'main'){
+         makeTableGallery(1, plants)
+    }
+    else{
+        makeRowGallery(1, plants)
+    }
+}
+function sortByPriceHigh(){
+    plants.sort((a,b)=>a.price<b.price? 1 : -1)
+    if(document.querySelector('.wrapper').children[2].className == 'main'){
+        makeTableGallery(1, plants)
+   }
+   else{
+       makeRowGallery(1, plants)
+   }
+}
+
+
+function sortByAvailibility(){
+    plants = plants.filter(element => element.amount>0);
+    if(document.querySelector('.wrapper').children[2].className == 'main'){
+        makeTableGallery(1, plants)
+   }
+   else{
+       makeRowGallery(1, plants)
+   }
+}
+
+function checkLocalStorge(){
+    if(localStorage.length>0){
+        let totalInCart = 0;
+        for(let i=0; i<localStorage.length; i++) {
+            let key = localStorage.key(i);
+            let quantity = localStorage.getItem(key);
+            totalInCart += parseInt(quantity)
+            plants.forEach(element=>{
+                if (element.record == key ){
+                    element.amount = parseInt(element.amount) - parseInt(quantity)
+                }
+            })
+          }
+        shoppingCart.firstChild.innerHTML = totalInCart;
+    }
+}
+
+function makeCartPage (){
+    let content = document.querySelector('.content')
+    let totalPriceElement = document.querySelector('.totalPrice')
+    let totalPrice = 0;
+    for(let i=0;i<localStorage.length;i++){
+        console.log('hey')
+        let key = localStorage.key(i);
+        let quantity = localStorage.getItem(key);
+                let itemCart    = document.createElement('div')  
+                itemCart.classList.add('item-cart')
+                let imgCart     = document.createElement('div')
+                imgCart.classList.add('img')
+                let img         = document.createElement('img')
+                img.classList.add('img-cart');
+                img.setAttribute('src', `img/MyPlants/${plants[key].photo}.jpg`)
+                imgCart.append(img)
+                let text        = document.createElement('div')
+                text.classList.add('text-cart')
+                text.innerHTML = `${plants[key].name}`
+                let price       = document.createElement('div');
+                price.classList.add('price-cart')
+                price.innerHTML = `${plants[key].price}$`
+                let amount      = document.createElement('div');
+                amount.classList.add('amount-cart');
+                amount.innerHTML = `${quantity}`
+                itemCart.append(imgCart);
+                itemCart.append(text);
+                itemCart.append(price);
+                itemCart.append(amount)
+                content.append(itemCart)
+                totalPrice = totalPrice + parseInt(plants[key].price) * quantity
+    }
+    totalPriceElement.innerHTML = `You have to pay ${totalPrice} $`
+
+}

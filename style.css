@@ -75,6 +75,11 @@ h4{
 .header{
     margin-top: 20px;
     text-align: center;
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none;
 }
 
 .display{
@@ -100,6 +105,12 @@ button:hover{
     border: none;
     box-shadow: none;
 }
+.linkToPurcases{
+    color: black;
+}
+.linkToPurcases:hover{
+    color: gray;
+}
 .fa-shopping-cart{
    position: absolute;
    right: 100px;
@@ -113,6 +124,23 @@ button:hover{
 /* header end */
 
 /* main */
+
+.filtration{
+    display: flex;
+    justify-content: center;
+}
+.filtrPrice{
+    padding-right: 5px;
+    cursor: pointer;
+}
+.stick{
+    cursor: pointer;
+}
+.availability{
+    padding-left: 5px;
+    cursor: pointer;
+}
+
 .main{
     width: 100%; 
     max-width: 960px; 
@@ -163,6 +191,7 @@ img:hover{
 .id{
     color: transparent;
     position: absolute;
+ /* visibility: hidden; */
 }
 .amount{
     padding-top: 2px;
@@ -237,6 +266,11 @@ footer{
     margin-left: auto;
     margin-right: auto;
     padding-top: 40px;
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none;
 }
 
 .social{
@@ -244,12 +278,75 @@ footer{
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 15px;
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none;
 }
 .social>a>span{
     color: white;
     margin-right: 5px;
     margin-left: 5px;
- 
+}
+.social>a>span:hover{
+    color: orange;
 }
 
 /* end footer */
+
+
+
+
+/* Second page */
+ 
+a:active, /* активная/посещенная ссылка */
+a:hover,  /* при наведении */
+a {
+  text-decoration: none;
+  color: black;
+}
+.main-cart{
+    /* width: 100%;  */
+    max-width: 960px; 
+    margin: 0 auto; 
+    /* display: flex;
+    flex-wrap: wrap; */
+
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto; 
+}
+.item-cart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; 
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.item-cart:hover{
+    background-color: lightblue;    
+}
+.img-cart{
+    height: 100px;
+    width: 100px;
+}
+.text-cart{
+    padding-left: 15px;
+    width: 250px;
+}
+.amount-cart{
+    padding-left: 15px;
+}
+
+.clean_btn{
+   background-color: lightcoral;
+   padding: 2px;
+   border: solid 1px black;
+   border-radius: 30%;
+}
