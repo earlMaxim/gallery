@@ -1,4 +1,3 @@
-
 let plants =[
     { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"20",amount:"5", extra:["Aloe-Vera5_2","Aloe-Vera5_3"]},
     { photo:"cactus-1",name:"Cactus",description:"Sharp as your humor",price:"30",amount:"0"},
@@ -9,15 +8,15 @@ let plants =[
     { photo:"th4",name:"Office",description:"The best choice for office",price:"14",amount:"0"},
     { photo:"the-sill_1",name:"Sill",description:"For your girlfriend",price:"20",amount:"2"},
     { photo:"the-sill_2",name:"Another sill",description:"For your boyfriend",price:"25",amount:"1"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"43",amount:"2"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"32",amount:"4"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"43",amount:"2"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"15",amount:"4"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"24",amount:"1"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"43",amount:"0"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"22",amount:"3"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"33",amount:"5"},
-    { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"3"},
+    // { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"43",amount:"2"},
+    // { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"32",amount:"4"},
+    // { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"43",amount:"2"},
+    // { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"15",amount:"4"},
+    // { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"24",amount:"1"},
+    // { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"43",amount:"0"},
+    // { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"22",amount:"3"},
+    // { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"33",amount:"5"},
+    // { photo:"Aloe-Vera5_1",name:"Pilea Peperomioides",description:"In Mini Prospect Planter",price:"31",amount:"3"},
 ]
 
 let ballColor = ["red", "green", "grey"];
@@ -26,16 +25,30 @@ let btnRow =     document.querySelector(".row")
 let btnTable =   document.querySelector(".table")
 let gallery =    document.querySelector(".wrapper")
 let shoppingCart=document.querySelector(".fa-shopping-cart")
+let btnAddNew =  document.querySelector('.addnew')
+let b_popup =    document.querySelector('.b-popup_marker')
 
 let galleryRow = false;
 let galleryTable = false;
 let firstTime = false;
 
+//b_popup.classList.toggle('b-popup_show')
+//btnAddNew.addEventListener('click', addNewItem)
+
 checkLocalStorge()
+// let btnDeleteAll = document.querySelector('.clean_btn');
+// btnDeleteAll.addEventListener('click', cleanAll )
+
 if (document.querySelector('.main-cart')!=null){
     makeCartPage()
+    let btnDeleteAll = document.querySelector('.clean_btn');
+    btnDeleteAll.addEventListener('click', cleanAll )
+
 }
 
+if(btnAddNew!= null){
+    btnAddNew.addEventListener('click', addNewItem)
+}
 
 if(btnRow != null)
 {
@@ -43,7 +56,9 @@ if(btnRow != null)
         let firstpage = 1
         makeRowGallery(firstpage)
     }
+    
 }
+
 if(btnTable != null)
 {
     btnTable.onclick = function(){
@@ -51,8 +66,6 @@ if(btnTable != null)
         makeTableGallery(firstpage, plants)
     }    
 }
-
-
 
 function clearGallery(){
     if(typeof(gallery.children[2]) == 'object'){
@@ -375,8 +388,7 @@ function makePageCounter (plants){
         page.innerHTML= `${i}`
         counter.append(page);
     }
- }
-
+}
 
 function makeFiltration(main){
     let filtration =    document.createElement('div');
@@ -409,6 +421,7 @@ function sortByPriceLow(){
         makeRowGallery(1, plants)
     }
 }
+
 function sortByPriceHigh(){
     plants.sort((a,b)=>a.price<b.price? 1 : -1)
     if(document.querySelector('.wrapper').children[2].className == 'main'){
@@ -418,7 +431,6 @@ function sortByPriceHigh(){
        makeRowGallery(1, plants)
    }
 }
-
 
 function sortByAvailibility(){
     plants = plants.filter(element => element.amount>0);
@@ -451,9 +463,14 @@ function makeCartPage (){
     let content = document.querySelector('.content')
     let totalPriceElement = document.querySelector('.totalPrice')
     let totalPrice = 0;
+   // document.querySelector('.amountOfPurcases').innerHTML = localStorage.length
+    let totalquantity= 0
     for(let i=0;i<localStorage.length;i++){
         console.log('hey')
         let key = localStorage.key(i);
+        console.log(plants)
+        console.log(key)
+        console.log(plants[key])
         let quantity = localStorage.getItem(key);
                 let itemCart    = document.createElement('div')  
                 itemCart.classList.add('item-cart')
@@ -478,7 +495,70 @@ function makeCartPage (){
                 itemCart.append(amount)
                 content.append(itemCart)
                 totalPrice = totalPrice + parseInt(plants[key].price) * quantity
+                totalquantity = totalquantity +quantity
     }
     totalPriceElement.innerHTML = `You have to pay ${totalPrice} $`
 
+}
+
+function cleanAll(){
+    localStorage.clear();
+    let content = document.querySelector('.content')
+    console.log(content.children[8])
+    while(content.children[0]!=undefined){
+        content.lastChild.remove()
+    }
+    document.querySelector('.amountOfPurcases').innerHTML = '0'
+    makeCartPage ()
+    
+}
+
+function addNewItem(){
+
+    let footer          = document.querySelector('footer')
+    let popup           = document.createElement('div')
+    popup.classList.add("b-popup")
+    let popup_content   = document.createElement('div')
+    popup_content.classList.add("b-popup-content")
+    let textPU          = document.createElement('div')
+    textPU.classList.add('textPU')
+    textPU.innerHTML    = 'You can add item'
+    let closeBtn        = document.createElement('div')
+    closeBtn.classList.add('closeBtn')
+    closeBtn.innerHTML  = '<i class="fas fa-times-circle"></i>'
+    let form            = document.createElement('form')
+    form.classList.add('formAdd')
+    form.innerHTML      = '<div class="namePU">Input name</div> <input type="text" class="newName" size="40"> <div class="aboutPU">Description</div> <textarea name="descriptionNew" class="descriptionNew" cols="40" rows="10"></textarea> <div class="pricePU">Price</div> <input type="text" class="priceNewPU"> <div class="amountPU">Amount</div> <input type="text" class="amountNewPU"> <div class="photoPU">Put name of photo. Photo must be in root folder with all other photos</div> <input type="text" class="photoNewPU"><div class="btnAddNewItem">Add</div>'
+    textPU.append(closeBtn)
+    popup_content.append(textPU)
+    popup_content.append(form)
+    popup.append(popup_content)
+    footer.after(popup)
+
+    closeBtn.firstChild.onclick = function(){
+        footer.nextSibling.remove()
+    }
+    let btnAddNewItem  = document.querySelector(".btnAddNewItem")
+
+    btnAddNewItem.onclick = function(){
+        let newName        = document.querySelector('.newName').value 
+        let descriptionNew = document.querySelector('.descriptionNew').value 
+        let priceNewPU     = document.querySelector('.priceNewPU').value 
+        let amountNewPU    = document.querySelector('.amountNewPU').value 
+        let photoPU        = document.querySelector('.photoNewPU').value 
+
+        let newItem = new function(){
+            this.photo = photoPU;
+            this.name  = newName;
+            this.description = descriptionNew;
+            this.price = priceNewPU;
+            this.amount = amountNewPU;
+        }
+    
+        plants.push(newItem)
+        console.log(plants)
+        //close popup
+        footer.nextSibling.remove()
+    }
+    
 }
