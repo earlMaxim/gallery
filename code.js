@@ -297,6 +297,9 @@ function makeTableGallery(page, plants){
          main.append(item)
          i++
          record++  
+
+         console.log(plants)
+         console.log(record)
     }
 }
 
